@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.Display = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,10 +53,10 @@
             // 
             // Display
             // 
-            chartArea1.AxisX.IsStartedFromZero = false;
-            chartArea1.AxisY.IsStartedFromZero = false;
-            chartArea1.Name = "ChartArea1";
-            this.Display.ChartAreas.Add(chartArea1);
+            chartArea2.AxisX.IsStartedFromZero = false;
+            chartArea2.AxisY.IsStartedFromZero = false;
+            chartArea2.Name = "ChartArea1";
+            this.Display.ChartAreas.Add(chartArea2);
             this.Display.Location = new System.Drawing.Point(12, 12);
             this.Display.Name = "Display";
             this.Display.Size = new System.Drawing.Size(845, 538);
@@ -136,7 +136,6 @@
             this.numXOffset.Size = new System.Drawing.Size(210, 45);
             this.numXOffset.TabIndex = 11;
             this.numXOffset.TickFrequency = 50;
-            this.numXOffset.Value = 500;
             this.numXOffset.Scroll += new System.EventHandler(this.numXOffset_Scroll);
             // 
             // label4

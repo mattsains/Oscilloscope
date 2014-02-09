@@ -69,7 +69,7 @@ namespace Oscilliscope
         int Ydiv = 103;
         
         int Xdiv = 10;
-        int Xcenter = 500;
+        int Xcenter = 0;
 
         
         private void UpdateScale()

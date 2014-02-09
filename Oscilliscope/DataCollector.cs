@@ -19,8 +19,7 @@ namespace Oscilliscope
                 {
                     if (Program.form1.triggering)
                     {
-                        if ((lastPoint <= Program.form1.triggerVal && Program.form1.triggerVal <= value) ||
-                            (lastPoint >= Program.form1.triggerVal && Program.form1.triggerVal >= value))
+                        if (lastPoint <= Program.form1.triggerVal && Program.form1.triggerVal <= value)
                         {
                             Program.form1.ClearPoints(channel);
                             Program.form1.AddPoint(channel, value);
