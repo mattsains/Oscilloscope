@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms.DataVisualization.Charting;
-namespace Oscilliscope
+namespace Oscilloscope
 {
     class DataCollector
     {

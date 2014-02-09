@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading;
 
-namespace Oscilliscope
+namespace Oscilloscope
 {
     public partial class Form1 : Form
     {
@@ -175,6 +175,11 @@ namespace Oscilliscope
             {
                 cycle = false;
                 numXOffset.Enabled = true;
+                for (int i = 0; i < Display.Series.Count; i++)
+                    if (Display.Series[i] != triggerLevel)
+                        Display.Series[i].Points.Clear();
+                pos = 0;
+
                 UpdateScale();
             }
         }
@@ -187,6 +192,10 @@ namespace Oscilliscope
                 numXOffset.Value = 0;
                 Xcenter = 0;
                 numXOffset.Enabled = false;
+                for (int i = 0; i < Display.Series.Count; i++)
+                    if (Display.Series[i] != triggerLevel)
+                        Display.Series[i].Points.Clear();
+                pos = 0;
                 UpdateScale();
             }
         }

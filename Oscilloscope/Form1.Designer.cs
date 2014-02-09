@@ -1,4 +1,4 @@
-﻿namespace Oscilliscope
+﻿namespace Oscilloscope
 {
     partial class Form1
     {
