@@ -25,7 +25,7 @@ namespace Oscilloscope
         public Series AddSeries(string name)
         {
             Series s = Display.Series.Add(name);
-            s.ChartType = SeriesChartType.Line;
+            s.ChartType = SeriesChartType.StepLine;
             return s;
         }
         public void RemoveSeries(Series s)

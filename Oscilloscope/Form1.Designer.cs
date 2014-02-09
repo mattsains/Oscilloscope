@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.Display = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,10 +53,14 @@
             // 
             // Display
             // 
-            chartArea2.AxisX.IsStartedFromZero = false;
-            chartArea2.AxisY.IsStartedFromZero = false;
-            chartArea2.Name = "ChartArea1";
-            this.Display.ChartAreas.Add(chartArea2);
+            this.Display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.Display.AntiAliasing = System.Windows.Forms.DataVisualization.Charting.AntiAliasingStyles.None;
+            chartArea1.AxisX.IsStartedFromZero = false;
+            chartArea1.AxisY.IsStartedFromZero = false;
+            chartArea1.Name = "ChartArea1";
+            this.Display.ChartAreas.Add(chartArea1);
             this.Display.Location = new System.Drawing.Point(12, 12);
             this.Display.Name = "Display";
             this.Display.Size = new System.Drawing.Size(845, 538);
@@ -64,6 +68,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(863, 14);
             this.label1.Name = "label1";
@@ -73,6 +78,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(909, 14);
             this.label2.Name = "label2";
@@ -82,6 +88,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(863, 237);
             this.label3.Name = "label3";
@@ -91,6 +98,7 @@
             // 
             // numYDiv
             // 
+            this.numYDiv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numYDiv.LargeChange = 10;
             this.numYDiv.Location = new System.Drawing.Point(863, 30);
             this.numYDiv.Maximum = 103;
@@ -105,6 +113,7 @@
             // 
             // numYOffset
             // 
+            this.numYOffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numYOffset.LargeChange = 10;
             this.numYOffset.Location = new System.Drawing.Point(907, 30);
             this.numYOffset.Maximum = 1023;
@@ -118,6 +127,7 @@
             // 
             // numXDivLog
             // 
+            this.numXDivLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numXDivLog.Location = new System.Drawing.Point(863, 253);
             this.numXDivLog.Maximum = 933;
             this.numXDivLog.Minimum = 1;
@@ -130,6 +140,7 @@
             // 
             // numXOffset
             // 
+            this.numXOffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numXOffset.Location = new System.Drawing.Point(866, 304);
             this.numXOffset.Maximum = 1000;
             this.numXOffset.Name = "numXOffset";
@@ -140,6 +151,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(866, 288);
             this.label4.Name = "label4";
@@ -149,6 +161,7 @@
             // 
             // numTrigger
             // 
+            this.numTrigger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numTrigger.Enabled = false;
             this.numTrigger.LargeChange = 10;
             this.numTrigger.Location = new System.Drawing.Point(958, 30);
@@ -163,6 +176,7 @@
             // 
             // btnTrigger
             // 
+            this.btnTrigger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTrigger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTrigger.Location = new System.Drawing.Point(958, 9);
             this.btnTrigger.Name = "btnTrigger";
@@ -174,6 +188,7 @@
             // 
             // btnCOM3
             // 
+            this.btnCOM3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCOM3.Location = new System.Drawing.Point(1001, 341);
             this.btnCOM3.Name = "btnCOM3";
             this.btnCOM3.Size = new System.Drawing.Size(72, 32);
@@ -184,6 +199,7 @@
             // 
             // rdFree
             // 
+            this.rdFree.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdFree.AutoSize = true;
             this.rdFree.Checked = true;
             this.rdFree.Location = new System.Drawing.Point(993, 153);
@@ -197,6 +213,7 @@
             // 
             // rdCycle
             // 
+            this.rdCycle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdCycle.AutoSize = true;
             this.rdCycle.Location = new System.Drawing.Point(993, 176);
             this.rdCycle.Name = "rdCycle";

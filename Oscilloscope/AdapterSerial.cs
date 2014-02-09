@@ -21,7 +21,7 @@ namespace Oscilloscope
         }
         public void Generate()
         {
-            SerialPort sp = new SerialPort("COM3");
+            SerialPort sp = new SerialPort("COM3",115200);
             sp.Open();
 
             for (; ; )
@@ -30,7 +30,7 @@ namespace Oscilloscope
                 if (int.TryParse(sp.ReadLine(), out value))
                     lock (d)
                         d.NewPoint(value);
-                if (sp.BytesToRead<10)
+                if (sp.BytesToRead<100)
                     sp.WriteLine("k");
             }
         }
