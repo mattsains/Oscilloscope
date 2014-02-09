@@ -6,7 +6,7 @@ using System.Threading;
 using System.Diagnostics;
 namespace Oscilloscope
 {
-    class AdapterSine
+    class AdapterSine:IAdapter
     {
         Thread t;
         DataCollector d;

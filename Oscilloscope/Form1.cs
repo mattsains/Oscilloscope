@@ -14,7 +14,7 @@ namespace Oscilloscope
     public partial class Form1 : Form
     {
         public int MaxPoints = 150;
-        private AdapterSine s;
+        private IAdapter adapter;
 
         public Form1()
         {
@@ -165,7 +165,7 @@ namespace Oscilloscope
 
         private void button1_Click(object sender, EventArgs e)
         {
-            s = new AdapterSine(new DataCollector());
+            adapter = new AdapterSerial(new DataCollector());
         }
 
         bool cycle = false;

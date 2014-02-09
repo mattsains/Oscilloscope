@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Threading;
 namespace Oscilloscope
 {
+    interface IAdapter
+    {
+        void Generate();
+    }
     class DataCollector
     {
         Series channel = Program.form1.AddSeries("Channel 1");

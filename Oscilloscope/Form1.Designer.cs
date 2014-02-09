@@ -40,7 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.numTrigger = new System.Windows.Forms.TrackBar();
             this.btnTrigger = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCOM3 = new System.Windows.Forms.Button();
             this.rdFree = new System.Windows.Forms.RadioButton();
             this.rdCycle = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.Display)).BeginInit();
@@ -172,15 +172,15 @@
             this.btnTrigger.UseVisualStyleBackColor = true;
             this.btnTrigger.Click += new System.EventHandler(this.btnTrigger_Click);
             // 
-            // button1
+            // btnCOM3
             // 
-            this.button1.Location = new System.Drawing.Point(908, 399);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 32);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCOM3.Location = new System.Drawing.Point(1001, 341);
+            this.btnCOM3.Name = "btnCOM3";
+            this.btnCOM3.Size = new System.Drawing.Size(72, 32);
+            this.btnCOM3.TabIndex = 15;
+            this.btnCOM3.Text = "COM3";
+            this.btnCOM3.UseVisualStyleBackColor = true;
+            this.btnCOM3.Click += new System.EventHandler(this.button1_Click);
             // 
             // rdFree
             // 
@@ -214,7 +214,7 @@
             this.ClientSize = new System.Drawing.Size(1085, 562);
             this.Controls.Add(this.rdCycle);
             this.Controls.Add(this.rdFree);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCOM3);
             this.Controls.Add(this.btnTrigger);
             this.Controls.Add(this.numTrigger);
             this.Controls.Add(this.numXOffset);
@@ -252,7 +252,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TrackBar numTrigger;
         private System.Windows.Forms.Button btnTrigger;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCOM3;
         private System.Windows.Forms.RadioButton rdFree;
         private System.Windows.Forms.RadioButton rdCycle;
     }
