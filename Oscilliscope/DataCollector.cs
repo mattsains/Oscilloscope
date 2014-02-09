@@ -15,7 +15,7 @@ namespace Oscilliscope
             //this needs to be asynchronous
             lock (channel)
             {
-                if (channel.Points.Count >= Program.form1.MaxPoints || channel.Points.Count == 0)
+                if (Program.form1.pos >= Program.form1.MaxPoints || Program.form1.pos == 0)
                 {
                     if (Program.form1.triggering)
                     {

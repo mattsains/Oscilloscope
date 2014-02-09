@@ -33,6 +33,7 @@ namespace Oscilliscope
             Display.Series.Remove(s);
         }
 
+        public int pos = 0;
         delegate void AddPointCallback(Series s, int value);
         public void AddPoint(Series s, int value)
         {
@@ -43,7 +44,11 @@ namespace Oscilliscope
             }
             else
             {
-                s.Points.AddXY(s.Points.Count, value);
+                if (pos >= s.Points.Count)
+                    s.Points.AddXY(pos++, value);
+                else
+                    s.Points[pos++].YValues[0] = value;
+                Display.Invalidate();
             }
         }
         delegate void ClearPointsCallback(Series s);
@@ -56,7 +61,7 @@ namespace Oscilliscope
             }
             else
             {
-                s.Points.Clear();
+                pos = 0;
             }
         }
 
@@ -180,7 +185,7 @@ namespace Oscilliscope
             {
                 cycle = true;
                 numXOffset.Value = 0;
-                Xcenter=0;
+                Xcenter = 0;
                 numXOffset.Enabled = false;
                 UpdateScale();
             }
