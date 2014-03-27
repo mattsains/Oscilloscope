@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading;
+using System.IO.Ports;
 
 namespace Oscilloscope
 {
@@ -15,7 +16,7 @@ namespace Oscilloscope
     {
         public int MaxPoints = 150;
         private IAdapter adapter;
-
+        private int changes = 0;
         public Form1()
         {
             InitializeComponent();
@@ -37,19 +38,32 @@ namespace Oscilloscope
         delegate void AddPointCallback(Series s, int value);
         public void AddPoint(Series s, int value)
         {
-            if (this.Display.InvokeRequired)
+            try
             {
-                AddPointCallback d = new AddPointCallback(AddPoint);
-                this.Invoke(d, new object[] { s, value });
-            }
-            else
-            {
-                if (pos >= s.Points.Count)
-                    s.Points.AddXY(pos++, value);
+                if (this.Display.InvokeRequired)
+                {
+
+                    AddPointCallback d = new AddPointCallback(AddPoint);
+                    this.Invoke(d, new object[] { s, value });
+                }
                 else
-                    s.Points[pos++].YValues[0] = value;
-                Display.Invalidate();
+                {
+                    changes++;
+                    if (pos >= s.Points.Count)
+                        s.Points.AddXY(pos++, value);
+                    else
+                        s.Points[pos++].YValues[0] = value;
+
+                    if (changes > 250)
+                    {
+                        Display.Series.ResumeUpdates();
+                        Display.Series.Invalidate();
+                        Display.Series.SuspendUpdates();
+                        changes = 0;
+                    }
+                }
             }
+            catch (Exception) { /*yes I know how egregious this is, but this is supposed to be quick and dirty*/ }
         }
         delegate void ClearPointsCallback(Series s);
         public void ClearPoints(Series s)
@@ -74,8 +88,8 @@ namespace Oscilloscope
         
         private void UpdateScale()
         {
-            Axis XAxis=Display.ChartAreas[0].AxisX;
-            Axis YAxis=Display.ChartAreas[0].AxisY;
+            Axis XAxis = Display.ChartAreas[0].AxisX;
+            Axis YAxis = Display.ChartAreas[0].AxisY;
             XAxis.MajorGrid.Interval = Xdiv;
             YAxis.MajorGrid.Interval = Ydiv;
 
@@ -165,7 +179,7 @@ namespace Oscilloscope
 
         private void button1_Click(object sender, EventArgs e)
         {
-            adapter = new AdapterSerial(new DataCollector());
+            adapter = new AdapterSerial(new DataCollector(),cmbPort.Text);
         }
 
         bool cycle = false;
@@ -200,6 +214,18 @@ namespace Oscilloscope
             }
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Display.Series.SuspendUpdates();
+            foreach (string port in SerialPort.GetPortNames())
+                cmbPort.Items.Add(port);
+            cmbPort.SelectedIndex = cmbPort.Items.Count - 1;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
 
     }
 }

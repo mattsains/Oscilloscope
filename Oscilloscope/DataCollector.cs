@@ -14,6 +14,8 @@ namespace Oscilloscope
     {
         Series channel = Program.form1.AddSeries("Channel 1");
         int lastPoint = 0; //needed for triggering
+        int changes = 0;
+
 
         public void NewPoint(int value)
         {
@@ -42,7 +44,11 @@ namespace Oscilloscope
                 }
             }
             lastPoint = value;
+            changes++;
         }
-
+        public void clearPoints()
+        {
+            Program.form1.ClearPoints(channel);
+        }
     }
 }

@@ -40,9 +40,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.numTrigger = new System.Windows.Forms.TrackBar();
             this.btnTrigger = new System.Windows.Forms.Button();
-            this.btnCOM3 = new System.Windows.Forms.Button();
+            this.btnCapture = new System.Windows.Forms.Button();
             this.rdFree = new System.Windows.Forms.RadioButton();
             this.rdCycle = new System.Windows.Forms.RadioButton();
+            this.cmbPort = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Display)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numYDiv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numYOffset)).BeginInit();
@@ -56,11 +57,11 @@
             this.Display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.Display.AntiAliasing = System.Windows.Forms.DataVisualization.Charting.AntiAliasingStyles.None;
             chartArea1.AxisX.IsStartedFromZero = false;
             chartArea1.AxisY.IsStartedFromZero = false;
             chartArea1.Name = "ChartArea1";
             this.Display.ChartAreas.Add(chartArea1);
+            this.Display.IsSoftShadows = false;
             this.Display.Location = new System.Drawing.Point(12, 12);
             this.Display.Name = "Display";
             this.Display.Size = new System.Drawing.Size(845, 538);
@@ -186,16 +187,16 @@
             this.btnTrigger.UseVisualStyleBackColor = true;
             this.btnTrigger.Click += new System.EventHandler(this.btnTrigger_Click);
             // 
-            // btnCOM3
+            // btnCapture
             // 
-            this.btnCOM3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCOM3.Location = new System.Drawing.Point(1001, 341);
-            this.btnCOM3.Name = "btnCOM3";
-            this.btnCOM3.Size = new System.Drawing.Size(72, 32);
-            this.btnCOM3.TabIndex = 15;
-            this.btnCOM3.Text = "COM3";
-            this.btnCOM3.UseVisualStyleBackColor = true;
-            this.btnCOM3.Click += new System.EventHandler(this.button1_Click);
+            this.btnCapture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCapture.Location = new System.Drawing.Point(1001, 341);
+            this.btnCapture.Name = "btnCapture";
+            this.btnCapture.Size = new System.Drawing.Size(72, 32);
+            this.btnCapture.TabIndex = 15;
+            this.btnCapture.Text = "Capture";
+            this.btnCapture.UseVisualStyleBackColor = true;
+            this.btnCapture.Click += new System.EventHandler(this.button1_Click);
             // 
             // rdFree
             // 
@@ -224,14 +225,24 @@
             this.rdCycle.UseVisualStyleBackColor = true;
             this.rdCycle.CheckedChanged += new System.EventHandler(this.rdCycle_CheckedChanged);
             // 
+            // cmbPort
+            // 
+            this.cmbPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbPort.FormattingEnabled = true;
+            this.cmbPort.Location = new System.Drawing.Point(874, 348);
+            this.cmbPort.Name = "cmbPort";
+            this.cmbPort.Size = new System.Drawing.Size(121, 21);
+            this.cmbPort.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1085, 562);
+            this.Controls.Add(this.cmbPort);
             this.Controls.Add(this.rdCycle);
             this.Controls.Add(this.rdFree);
-            this.Controls.Add(this.btnCOM3);
+            this.Controls.Add(this.btnCapture);
             this.Controls.Add(this.btnTrigger);
             this.Controls.Add(this.numTrigger);
             this.Controls.Add(this.numXOffset);
@@ -245,6 +256,8 @@
             this.Controls.Add(this.Display);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Display)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numYDiv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numYOffset)).EndInit();
@@ -269,9 +282,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TrackBar numTrigger;
         private System.Windows.Forms.Button btnTrigger;
-        private System.Windows.Forms.Button btnCOM3;
+        private System.Windows.Forms.Button btnCapture;
         private System.Windows.Forms.RadioButton rdFree;
         private System.Windows.Forms.RadioButton rdCycle;
+        private System.Windows.Forms.ComboBox cmbPort;
     }
 }
 

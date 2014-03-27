@@ -12,26 +12,26 @@ namespace Oscilloscope
     {
         Thread t;
         DataCollector d;
-        
-        public AdapterSerial(DataCollector d)
+        string port;
+        public AdapterSerial(DataCollector d, string port)
         {
+            this.port = port;
             t = new Thread(Generate);
             this.d = d;
+            t.IsBackground = true;
             t.Start();
         }
         public void Generate()
         {
-            SerialPort sp = new SerialPort("COM3",115200);
+            SerialPort sp = new SerialPort(port,115200);
             sp.Open();
 
             for (; ; )
             {
                 int value;
-                if (int.TryParse(sp.ReadLine(), out value))
-                    lock (d)
-                        d.NewPoint(value);
-                if (sp.BytesToRead<100)
-                    sp.WriteLine("k");
+                    if (int.TryParse(sp.ReadLine(), out value))
+                        lock (d)
+                            d.NewPoint(value);
             }
         }
         ~AdapterSerial()
